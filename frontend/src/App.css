@@ -1,0 +1,146 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4a6fa5, #283e5b);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  /* Center container vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 600px;
+  padding: 30px 25px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+  /* Fade-in on load */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 0.7s forwards ease-out;
+}
+
+/* Animation */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Titles */
+h1, h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs & textarea */
+input,
+textarea {
+  padding: 12px 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fafaff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+/* Button */
+button {
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 86, 179, 0.6);
+}
+
+/* Feedback list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+li {
+  background: #f0f5ff;
+  margin-top: 14px;
+  padding: 16px 20px;
+  border-left: 6px solid #007bff;
+  border-radius: 12px;
+
+  opacity: 0;
+  animation: fadeIn 0.5s forwards ease-out;
+}
+
+li:nth-child(1) { animation-delay: 0.1s; }
+li:nth-child(2) { animation-delay: 0.2s; }
+li:nth-child(3) { animation-delay: 0.3s; }
+
+li strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #0056b3;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    padding: 25px 15px;
+    width: 95%;
+  }
+
+  input, textarea, button {
+    font-size: 15px;
+  }
+}
